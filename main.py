@@ -12,3 +12,5 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit() # Close Window
             quit() # End pygame
+
+print("Mudança ok")
