@@ -8,7 +8,7 @@ from pygame import Surface, Rect
 from pygame.font import Font
 
 from code.Const import C_WHITE, WIN_HEIGHT, MENU_OPTION, EVENT_ENEMY, SPAWN_TIME, C_GREEN, C_CYAN, EVENT_TIMEOUT, \
-    TIMEOUT_STEP, TIMEOUT_LEVEL
+    TIMEOUT_STEP, TIMEOUT_LEVEL, TIMEOUT_LEVEL_3
 from code.Enemy import Enemy
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
@@ -18,7 +18,12 @@ from code.Player import Player
 
 class Level:
     def __init__(self, window: Surface, name: str, game_mode: str, player_score: list[int]):
-        self.timeout = TIMEOUT_LEVEL
+        if name == 'Level3':
+            self.timeout = TIMEOUT_LEVEL_3  # Duração específica para o Level 3
+            self.music_path = './asset/Level3.mp3'  # Música específica para o Level 3
+        else:
+            self.timeout = TIMEOUT_LEVEL  # Duração padrão para os outros níveis
+            self.music_path = f'./asset/{name}.mp3'  # Música específica para o Level 1 e Level 2
         self.window = window
         self.name = name
         self.game_mode = game_mode
@@ -35,7 +40,7 @@ class Level:
         pygame.time.set_timer(EVENT_TIMEOUT, TIMEOUT_STEP)  # 100ms
 
     def run(self, player_score: list[int]):
-        pygame.mixer_music.load(f'./asset/{self.name}.mp3')
+        pygame.mixer_music.load(self.music_path)  # Carrega a música correspondente ao nível
         pygame.mixer_music.set_volume(0.3)
         pygame.mixer_music.play(-1)
         clock = pygame.time.Clock()
@@ -57,8 +62,11 @@ class Level:
                     pygame.quit()
                     sys.exit()
                 if event.type == EVENT_ENEMY:
-                    choice = random.choice(('Enemy1', 'Enemy2'))
-                    self.entity_list.append(EntityFactory.get_entity(choice))
+                    if self.name == 'Level3':  # Gera somente Enemy3 no Level 3
+                        enemy = EntityFactory.get_entity('Enemy3')
+                    else:  # Níveis anteriores geram Enemy1 ou Enemy2
+                        enemy = EntityFactory.get_entity(random.choice(['Enemy1', 'Enemy2']))
+                    self.entity_list.append(enemy)
                 if event.type == EVENT_TIMEOUT:
                     self.timeout -= TIMEOUT_STEP
                     if self.timeout == 0:

@@ -9,6 +9,7 @@ class Background(Entity):
         super().__init__(name, position)
 
     def move(self):
+        # Movimento contínuo para efeito de parallax
         self.rect.centerx -= ENTITY_SPEED[self.name]
-        if self.rect.right <= 0:
+        if self.rect.right <= 0:  # Reinicia a posição quando sai da tela
             self.rect.left = WIN_WIDTH

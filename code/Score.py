@@ -69,7 +69,8 @@ class Score:
 
         for player_score in list_score:
             id_, name, score, date = player_score
-            self.score_text(20, f'{name}     {score:05d}     {date}', C_YELLOW,
+            # Corrigido para exibir o score como inteiro
+            self.score_text(20, f'{name}     {int(score):05d}     {date}', C_YELLOW,
                             SCORE_POS[list_score.index(player_score)])
         while True:
             for event in pygame.event.get():
