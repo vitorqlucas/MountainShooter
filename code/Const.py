@@ -1,3 +1,11 @@
+# A
+
+ALUNOS = (
+    'POLIANA BRANDANI',
+    'JULIANA TRINDADE',
+    'VITOR QUINTANILHA'
+          )
+
 # C
 import pygame
 
@@ -23,6 +31,13 @@ ENTITY_SPEED = {
     'Level2Bg2': 2,
     'Level2Bg3': 3,
     'Level2Bg4': 4,
+    # Inicio BG Level 3
+    'Level3Bg0': 0,
+    'Level3Bg1': 1,
+    'Level3Bg2': 2,
+    'Level3Bg3': 3,
+    'Level3Bg4': 4,
+    # Fim BG Level 3
     'Player1': 3,
     'Player1Shot': 1,
     'Player2': 3,
@@ -46,6 +61,13 @@ ENTITY_HEALTH = {
     'Level2Bg2': 999,
     'Level2Bg3': 999,
     'Level2Bg4': 999,
+    # Inicio vida Level 3
+    'Level3Bg0': 999,
+    'Level3Bg1': 999,
+    'Level3Bg2': 999,
+    'Level3Bg3': 999,
+    'Level3Bg4': 999,
+    # Fim vida Level 3
     'Player1': 300,
     'Player1Shot': 1,
     'Player2': 300,
@@ -69,6 +91,13 @@ ENTITY_DAMAGE = {
     'Level2Bg2': 0,
     'Level2Bg3': 0,
     'Level2Bg4': 0,
+    # Inicio dano level 3
+    'Level3Bg0': 100,
+    'Level3Bg1': 100,
+    'Level3Bg2': 100,
+    'Level3Bg3': 100,
+    'Level3Bg4': 100,
+    # Fim dano level 3
     'Player1': 1,
     'Player1Shot': 25,
     'Player2': 1,
@@ -92,6 +121,13 @@ ENTITY_SCORE = {
     'Level2Bg2': 0,
     'Level2Bg3': 0,
     'Level2Bg4': 0,
+    # Inicio score level 3
+    'Level3Bg0': 10,
+    'Level3Bg1': 10,
+    'Level3Bg2': 10,
+    'Level3Bg3': 10,
+    'Level3Bg4': 10,
+    # Fim score level 3
     'Player1': 0,
     'Player1Shot': 0,
     'Player2': 0,
