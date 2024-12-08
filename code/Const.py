@@ -1,11 +1,3 @@
-# A
-
-ALUNOS = (
-    'POLIANA BRANDANI',
-    'JULIANA TRINDADE',
-    'VITOR QUINTANILHA'
-)
-
 # C
 import pygame
 
